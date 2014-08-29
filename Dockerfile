@@ -21,4 +21,7 @@ RUN \
     /opt/openjdk8 && \
   cd /tmp && \
   rm -rf openjdk8
+RUN \
+  find /opt/openjdk8 -type f -exec chmod a+r {} + && \
+  find /opt/openjdk8 -type d -exec chmod a+rx {} +
 ENV PATH /opt/openjdk8/bin:$PATH
