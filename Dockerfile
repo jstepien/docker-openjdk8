@@ -1,4 +1,4 @@
-FROM dockerfile/java
+FROM dockerfile/java:openjdk-7-jdk
 MAINTAINER Jan Stępień
 RUN \
   apt-get update && \
