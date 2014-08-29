@@ -8,7 +8,7 @@ RUN \
 RUN \
   apt-get install -y mercurial && \
   cd /tmp && \
-  hg clone http://hg.openjdk.java.net/jdk8/jdk8 openjdk8 && \
+  hg clone http://hg.openjdk.java.net/jdk8u/jdk8u20 openjdk8 && \
   cd openjdk8 && \
   sh ./get_source.sh && \
   apt-get purge -y --auto-remove mercurial && \
