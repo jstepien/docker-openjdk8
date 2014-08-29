@@ -18,3 +18,4 @@ RUN \
     /opt/openjdk8 && \
   cd /tmp && \
   rm -rf openjdk8
+ENV PATH /opt/openjdk8/bin:$PATH
