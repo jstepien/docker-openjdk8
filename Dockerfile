@@ -20,8 +20,7 @@ RUN \
   cp -a build/linux-x86_64-normal-server-release/images/j2sdk-image \
     /opt/openjdk8 && \
   cd /tmp && \
-  rm -rf openjdk8
-RUN \
+  rm -rf openjdk8 && \
   find /opt/openjdk8 -type f -exec chmod a+r {} + && \
   find /opt/openjdk8 -type d -exec chmod a+rx {} +
 ENV PATH /opt/openjdk8/bin:$PATH
