@@ -12,7 +12,7 @@ RUN \
   cd /tmp && \
   hg clone http://hg.openjdk.java.net/jdk8u/jdk8u openjdk8 && \
   cd openjdk8 && \
-  hg checkout jdk8u25-b18 && \
+  hg checkout jdk8u40-b15 && \
   sh ./get_source.sh && \
   apt-get purge -y --auto-remove mercurial && \
   rm -rf /var/lib/apt/lists/* && \
