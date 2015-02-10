@@ -10,9 +10,9 @@ RUN \
   apt-get update && \
   apt-get install -y mercurial ca-certificates-java openjdk-7-jdk && \
   cd /tmp && \
-  hg clone http://hg.openjdk.java.net/jdk8u/jdk8u openjdk8 && \
+  hg clone http://hg.openjdk.java.net/jdk8u/jdk8u40 openjdk8 && \
   cd openjdk8 && \
-  hg checkout jdk8u40-b19 && \
+  hg checkout jdk8u40-b24 && \
   sh ./get_source.sh && \
   bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts && \
   make all && \
