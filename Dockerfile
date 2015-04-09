@@ -12,7 +12,7 @@ RUN \
   cd /tmp && \
   hg clone http://hg.openjdk.java.net/jdk8u/jdk8u40 openjdk8 && \
   cd openjdk8 && \
-  hg checkout jdk8u40-b24 && \
+  hg checkout jdk8u40-b27 && \
   sh ./get_source.sh && \
   bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts && \
   make all && \
