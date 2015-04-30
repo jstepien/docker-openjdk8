@@ -1,4 +1,4 @@
-FROM dockerfile/ubuntu
+FROM ubuntu:14.04
 MAINTAINER Jan Stępień
 RUN \
   apt-get update && \
