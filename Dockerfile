@@ -8,7 +8,7 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 RUN \
   apt-get update && \
-  apt-get install -y mercurial ca-certificates-java openjdk-7-jdk && \
+  apt-get install -y mercurial ca-certificates-java openjdk-7-jdk build-essential && \
   cd /tmp && \
   hg clone http://hg.openjdk.java.net/jdk8u/jdk8u openjdk8 && \
   cd openjdk8 && \
@@ -20,7 +20,7 @@ RUN \
     /opt/openjdk8 && \
   cd /tmp && \
   rm -rf openjdk8 && \
-  apt-get purge -y --auto-remove mercurial ca-certificates-java openjdk-7-jdk default-jre && \
+  apt-get purge -y --auto-remove mercurial ca-certificates-java build-essential openjdk-7-jdk default-jre && \
   rm -rf /var/lib/apt/lists/* && \
   find /opt/openjdk8 -type f -exec chmod a+r {} + && \
   find /opt/openjdk8 -type d -exec chmod a+rx {} +
