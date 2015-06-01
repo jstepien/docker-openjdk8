@@ -22,6 +22,7 @@ RUN \
   rm -rf openjdk8 && \
   apt-get purge -y --auto-remove mercurial ca-certificates-java build-essential openjdk-7-jdk default-jre && \
   rm -rf /var/lib/apt/lists/* && \
+  find /opt/openjdk8 -iname '*.diz' -exec rm {} + && \
   find /opt/openjdk8 -type f -exec chmod a+r {} + && \
   find /opt/openjdk8 -type d -exec chmod a+rx {} +
 ENV PATH /opt/openjdk8/bin:$PATH
