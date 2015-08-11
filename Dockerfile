@@ -8,7 +8,7 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 RUN \
   apt-get update && \
-  apt-get install -y mercurial ca-certificates-java openjdk-7-jdk build-essential && \
+  apt-get install -y curl mercurial ca-certificates-java openjdk-7-jdk build-essential && \
   cd /tmp && \
   hg clone http://hg.openjdk.java.net/jdk8u/jdk8u openjdk8 && \
   cd openjdk8 && \
@@ -16,13 +16,15 @@ RUN \
   hg checkout $tag && \
   sh ./get_source.sh && \
   for dir in ./*; do test -d $dir && (cd $dir && hg checkout $tag); done && \
+  patch_url=https://bugs.openjdk.java.net/secure/attachment/25832/JDK-8074312-hotspot.patch && \
+  (cd hotspot && curl $patch_url | patch -p1) && \
   bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts && \
   make all && \
   cp -a build/linux-x86_64-normal-server-release/images/j2sdk-image \
     /opt/openjdk8 && \
   cd /tmp && \
   rm -rf openjdk8 && \
-  apt-get purge -y --auto-remove mercurial ca-certificates-java build-essential openjdk-7-jdk default-jre && \
+  apt-get purge -y --auto-remove curl mercurial ca-certificates-java build-essential openjdk-7-jdk default-jre && \
   rm -rf /var/lib/apt/lists/* && \
   find /opt/openjdk8 -iname '*.diz' -exec rm {} + && \
   find /opt/openjdk8 -type f -exec chmod a+r {} + && \
