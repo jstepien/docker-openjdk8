@@ -10,9 +10,9 @@ RUN \
   apt-get update && \
   apt-get install -y mercurial ca-certificates-java openjdk-7-jdk build-essential && \
   cd /tmp && \
-  hg clone http://hg.openjdk.java.net/jdk8u/jdk8u openjdk8 && \
+  hg clone http://hg.openjdk.java.net/jdk8u/jdk8u60 openjdk8 && \
   cd openjdk8 && \
-  tag=jdk8u60-b24 && \
+  tag=jdk8u60-b27 && \
   hg checkout $tag && \
   sh ./get_source.sh && \
   for dir in ./*; do test -d $dir && (cd $dir && hg checkout $tag); done && \
