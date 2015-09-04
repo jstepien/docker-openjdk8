@@ -29,3 +29,14 @@ RUN \
   find /opt/openjdk8 -type d -exec chmod a+rx {} +
 ENV PATH /opt/openjdk8/bin:$PATH
 ENV JAVA_HOME /opt/openjdk8
+RUN \
+  cd /tmp && \
+  echo > t.java '\
+    public class t {\
+      public static void main(String[] args) {\
+        System.out.println(System.getProperty("java.vm.version"));\
+      }\
+    }' && \
+  javac t.java && \
+  java -Xmx5m t | grep -q ^25.60-b[0-9]*$ && \
+  rm -f t.java t.class
