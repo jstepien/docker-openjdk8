@@ -3,12 +3,15 @@ MAINTAINER Jan Stępień
 RUN \
   apt-get update && \
   apt-get install -y \
-    libxt-dev zip pkg-config libX11-dev libxext-dev \
-    libxrender-dev libxtst-dev libasound2-dev libcups2-dev libfreetype6-dev && \
+    libxt6 libX11-6 libxext6 \
+    libxrender1 libxtst6 libasound2 libcups2 libfreetype6 && \
   rm -rf /var/lib/apt/lists/*
 RUN \
   apt-get update && \
-  apt-get install -y mercurial ca-certificates-java openjdk-7-jdk build-essential && \
+  apt-get install -y \
+    mercurial ca-certificates-java openjdk-7-jdk build-essential \
+    libxt-dev pkg-config zip pkg-config libX11-dev libxext-dev \
+    libxrender-dev libxtst-dev libasound2-dev libcups2-dev libfreetype6-dev && \
   cd /tmp && \
   hg clone http://hg.openjdk.java.net/jdk8u/jdk8u60 openjdk8 && \
   cd openjdk8 && \
@@ -22,7 +25,10 @@ RUN \
     /opt/openjdk8 && \
   cd /tmp && \
   rm -rf openjdk8 && \
-  apt-get purge -y --auto-remove mercurial ca-certificates-java build-essential openjdk-7-jdk default-jre && \
+  apt-get purge -y --auto-remove \
+    mercurial ca-certificates-java build-essential openjdk-7-jdk default-jre \
+    libxt-dev pkg-config zip pkg-config libX11-dev libxext-dev gcc-4.8 gcc \
+    libxrender-dev libxtst-dev libasound2-dev libcups2-dev libfreetype6-dev && \
   rm -rf /var/lib/apt/lists/* && \
   find /opt/openjdk8 -iname '*.diz' -exec rm {} + && \
   find /opt/openjdk8 -type f -exec chmod a+r {} + && \
