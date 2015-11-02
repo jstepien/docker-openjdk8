@@ -13,9 +13,9 @@ RUN \
     libxt-dev pkg-config zip pkg-config libX11-dev libxext-dev \
     libxrender-dev libxtst-dev libasound2-dev libcups2-dev libfreetype6-dev && \
   cd /tmp && \
-  hg clone http://hg.openjdk.java.net/jdk8u/jdk8u60 openjdk8 && \
+  hg clone http://hg.openjdk.java.net/jdk8u/jdk8u openjdk8 && \
   cd openjdk8 && \
-  tag=jdk8u60-b27 && \
+  tag=jdk8u66-b17 && \
   hg checkout $tag && \
   sh ./get_source.sh && \
   for dir in ./*; do test -d $dir && (cd $dir && hg checkout $tag); done && \
