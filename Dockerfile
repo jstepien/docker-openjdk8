@@ -44,5 +44,5 @@ RUN \
       }\
     }' && \
   javac t.java && \
-  java -Xmx5m t | grep -q ^25.60-b[0-9]*$ && \
+  java -Xmx5m t | grep -q ^25.66-b[0-9]*$ && \
   rm -f t.java t.class
