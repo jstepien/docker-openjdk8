@@ -22,7 +22,7 @@ RUN \
   bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts \
                    --with-jobs=$(grep -c ^processor /proc/cpuinfo) && \
   make all && \
-  cp -a build/linux-x86_64-normal-server-release/images/j2sdk-image \
+  mv build/linux-x86_64-normal-server-release/images/j2sdk-image \
     /opt/openjdk8 && \
   cd /tmp && \
   rm -rf openjdk8 && \
