@@ -19,7 +19,8 @@ RUN \
   hg checkout $tag && \
   sh ./get_source.sh && \
   for dir in ./*; do test -d $dir && (cd $dir && hg checkout $tag); done && \
-  bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts && \
+  bash ./configure --with-cacerts-file=/etc/ssl/certs/java/cacerts \
+                   --with-jobs=$(grep -c ^processor /proc/cpuinfo) && \
   make all && \
   cp -a build/linux-x86_64-normal-server-release/images/j2sdk-image \
     /opt/openjdk8 && \
