@@ -15,7 +15,7 @@ RUN \
   cd /tmp && \
   hg clone http://hg.openjdk.java.net/jdk8u/jdk8u openjdk8 && \
   cd openjdk8 && \
-  tag=jdk8u66-b17 && \
+  tag=jdk8u72-b15 && \
   hg checkout $tag && \
   sh ./get_source.sh && \
   for dir in ./*; do test -d $dir && (cd $dir && hg checkout $tag); done && \
@@ -45,5 +45,5 @@ RUN \
       }\
     }' && \
   javac t.java && \
-  java -Xmx5m t | grep -q ^25.66-b[0-9]*$ && \
+  java -Xmx5m t | grep -q ^25.71-b[0-9]*$ && \
   rm -f t.java t.class
