@@ -15,7 +15,7 @@ RUN \
   cd /tmp && \
   hg clone http://hg.openjdk.java.net/jdk8u/jdk8u openjdk8 && \
   cd openjdk8 && \
-  tag=jdk8u72-b15 && \
+  tag=jdk8u92-b14 && \
   hg checkout $tag && \
   sh ./get_source.sh && \
   for dir in ./*; do test -d $dir && (cd $dir && hg checkout $tag); done && \
